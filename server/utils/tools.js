@@ -1,0 +1,11 @@
+const getRandomStr = (length) => {
+  let str = ''
+  for (let i = 0; i < length; i++) {
+    str += Math.floor(Math.random() * 10)
+  }
+  return str
+}
+
+module.exports = {
+  getRandomStr
+}
