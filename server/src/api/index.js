@@ -3,8 +3,8 @@ import { createAPI } from 'create-api'
 import { eventMap } from 'socket-event'
 
 const logRequest = !!process.env.DEBUG_API
-const socketURL = process.env.SOCKET_URL || 'http://localhost:8848'
-const baseURL = process.env.API_URL || 'http://localhost:8848/api'
+const socketURL = process.env.SOCKET_URL
+const baseURL = process.env.API_URL
 
 /**
  * @type {import('axios').AxiosInstance}

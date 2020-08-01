@@ -65,13 +65,22 @@ module.exports = {
       }
     ]
   },
-  plugins: isProd
-    ? [
-      new VueLoaderPlugin(),
-      new webpack.optimize.ModuleConcatenationPlugin(),
-    ]
-  : [
-      new VueLoaderPlugin(),
-      new FriendlyErrorsPlugin()
-    ]
+  plugins: getPlugins(isProd)
+}
+
+function getPlugins (isProd) {
+  const plugins = []
+  plugins.push(new VueLoaderPlugin())
+  plugins.push(new webpack.DefinePlugin({
+    'process.env.SOCKET_URL': JSON.stringify('http://localhost:8848'),
+    'process.env.API_URL': JSON.stringify('http://localhost:8848/api')
+  }))
+  
+  if (isProd) {
+    plugins.push(new webpack.optimize.ModuleConcatenationPlugin())
+  } else {
+    plugins.push(new FriendlyErrorsPlugin())
+  }
+
+  return plugins
 }
