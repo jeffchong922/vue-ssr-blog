@@ -1,6 +1,7 @@
 const express = require('express'),
       favicon = require('serve-favicon'),
       dotenv = require('dotenv'),
+      path = require('path'),
       cors = require('cors'),
       app = express()
 
@@ -10,7 +11,7 @@ dotenv.config()
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(favicon('./public/favicon-32x32.png'))
+app.use(favicon(path.resolve(__dirname, './public/favicon.ico')))
 
 app.use('/admin', express.static(__dirname + '/public/admin'))
 
