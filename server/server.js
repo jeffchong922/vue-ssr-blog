@@ -11,7 +11,7 @@ dotenv.config()
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(favicon(path.resolve(__dirname, './public/favicon.ico')))
+app.use(favicon(path.resolve(__dirname, './public/favicon-32x32.png')))
 
 app.use('/admin', express.static(__dirname + '/public/admin'))
 
