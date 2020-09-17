@@ -1,0 +1,8 @@
+# 模块包文件夹
+/node_modules
+
+# Vue 项目生成文件
+/dist
+
+# .env 私有环境变量设置
+.env
