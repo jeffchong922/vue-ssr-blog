@@ -1,0 +1,6 @@
+// meta 标签列表，一个对象代表一个 meta 标签
+module.exports = [
+  {
+    charset: 'UTF-8'
+  }
+]

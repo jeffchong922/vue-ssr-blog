@@ -21,6 +21,14 @@ if (fs.existsSync(resolve('./.env'))) {
   })
 }
 
+let metaList = []
+if (fs.existsSync(resolve('./head-meta-info'))) {
+  metaList = require('./head-meta-info')
+  if (!Array.isArray(metaList)) {
+    metaList = []
+  }
+}
+
 const port = process.env.SERVER_PORT || 9999
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE === 'true'
@@ -39,6 +47,18 @@ if (useMicroCache) {
     maxAge: microCacheMaxAge // 更新周期
   })
 }
+
+// meta 标签
+let meta = ''
+metaList.forEach(metaInfo => {
+  let temp = '<meta '
+  Object.keys(metaInfo).forEach(key => {
+    temp += `${key}="${metaInfo[key]}" `
+  })
+  temp += '/>'
+  meta += temp
+})
+console.log('meta: ', meta)
 
 const app = express()
 
@@ -131,7 +151,8 @@ function render (req, res) {
 
   const context = {
     title: 'Jeff`s Blog', // 默认 title
-    url: req.url
+    url: req.url,
+    meta
   }
 
   renderer.renderToString(context, (err, html) => {
