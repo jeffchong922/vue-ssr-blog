@@ -1,7 +1,39 @@
 import marked from 'marked'
+import hlJs from 'highlight.js/lib/core'
+
+import 'highlight.js/styles/atom-one-dark.css'
+
+import javascript from 'highlight.js/lib/languages/javascript'
+import xml from 'highlight.js/lib/languages/xml'
+
+hlJs.registerLanguage('javascript', javascript)
+hlJs.registerAliases([
+  'javascript',
+  'js',
+  'JavaScript',
+  'JS',
+  'jsx',
+  'jsm'
+], {
+  languageName: 'javascript'
+})
+
+hlJs.registerLanguage('xml', xml)
+
 
 marked.use({
   gfm: true,
+  langPrefix: 'hljs lang-',
+  highlight: (code, lang) => {
+    if (lang && hlJs.getLanguage(lang)) {
+      try {
+        return hlJs.highlight(lang, code).value
+      } catch (e) {
+        return code
+      }
+    }
+    return code
+  },
   renderer: {
     heading: (text, level, raw, slugger) => {
       const id = slugger.slug(text)
