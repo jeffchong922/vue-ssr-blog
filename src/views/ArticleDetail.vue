@@ -203,14 +203,14 @@ export default {
   }
 
   code {
-    @apply px-2 text-sm rounded-lg text-gray-300 bg-gray-800;
+    @apply px-2 text-sm rounded-lg text-yellow-500 bg-gray-800;
     @screen sm {
       @apply text-base;
     }
   }
 
   em {
-    @apply text-red-300;
+    @apply text-purple-400;
   }
 
   strong {
@@ -218,16 +218,19 @@ export default {
   }
 
   pre {
-    @apply my-3 text-sm rounded-lg p-4 overflow-x-auto text-blue-300 bg-gray-800;
+    background-color: #2d2d2d;
+    @apply my-3 text-sm rounded-lg px-2;
+
     @screen sm {
       @apply text-base;
     }
+
     & > code {
-      padding-left: 0;
-      padding-right: 0;
+      // padding-left: 0;
+      // padding-right: 0;
       font-size: inherit;
       background: none;
-      color: inherit;
+      color: #abb2bf;
     }
   }
 
@@ -256,5 +259,4 @@ export default {
     @apply mx-auto;
   }
 }
-
 </style>

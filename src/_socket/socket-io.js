@@ -5,8 +5,7 @@ import io from 'socket.io-client'
  */
 const connectOptions = {
   autoConnect: false,
-  reconnectionAttempts: 25,
-  transports: ['websocket']
+  reconnectionAttempts: 25
 }
 
 const clientStorage = new Map()
