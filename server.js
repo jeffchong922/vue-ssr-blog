@@ -22,7 +22,7 @@ if (fs.existsSync(resolve('./.env'))) {
 }
 
 let metaList = []
-if (fs.existsSync(resolve('./head-meta-info'))) {
+if (fs.existsSync(resolve('./head-meta-info.js'))) {
   metaList = require('./head-meta-info')
   if (!Array.isArray(metaList)) {
     metaList = []
