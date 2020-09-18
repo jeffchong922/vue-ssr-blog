@@ -6,3 +6,6 @@
 
 # .env 私有环境变量设置
 .env
+
+# head-meta-info.js
+head-meta-info.js
