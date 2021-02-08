@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "highlight.js": "^10.2.0",
     "lru-cache": "^6.0.0",
-    "marked": "^1.1.1",
+    "marked": "^2.0.0",
     "serve-favicon": "^2.5.0",
     "socket.io-client": "^2.3.0",
     "vue": "^2.6.12",
